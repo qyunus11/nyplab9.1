@@ -1,33 +1,28 @@
-// Ders adında soyut bir sınıf
 abstract class Ders implements DersIsle {
     protected String DersAd;
     protected String DersSinif;
 
-    // Yapılandırıcı
     public Ders(String DersAd, String DersSinif) {
         this.DersAd = DersAd;
         this.DersSinif = DersSinif;
     }
 
-    // Metot
+
     public String IsmiBuyut(String DersAd) {
         return DersAd.toUpperCase();
     }
 
-    // Soyut metotlar
     public abstract String IsimGetir();
 
     public abstract String SinifGetir();
 }
 
-// DersIsle adında bir arayüz
 interface DersIsle {
     void SozluSunum();
 
     void YaziliSunum();
 }
 
-// Matematik sınıfı
 class Matematik extends Ders {
     public Matematik(String DersAd, String DersSinif) {
         super(DersAd, DersSinif);
@@ -54,7 +49,6 @@ class Matematik extends Ders {
     }
 }
 
-// Fizik sınıfı
 class Fizik extends Ders {
     public Fizik(String DersAd, String DersSinif) {
         super(DersAd, DersSinif);
@@ -81,7 +75,6 @@ class Fizik extends Ders {
     }
 }
 
-// Kimya sınıfı
 class Kimya extends Ders {
     public Kimya(String DersAd, String DersSinif) {
         super(DersAd, DersSinif);
@@ -108,15 +101,12 @@ class Kimya extends Ders {
     }
 }
 
-// Ana sınıf
 public class SoyutSiniflar {
     public static void main(String[] args) {
-        // Nesneleri oluşturma
         Matematik matematik = new Matematik("Matematik", "101");
         Fizik fizik = new Fizik("Fizik", "102");
         Kimya kimya = new Kimya("Kimya", "103");
 
-        // Metotları ve soyut metotları çağırma
         System.out.println(matematik.IsimGetir());
         System.out.println(matematik.SinifGetir());
         System.out.println("Büyük Harflerle: " + matematik.IsmiBuyut(matematik.DersAd));
